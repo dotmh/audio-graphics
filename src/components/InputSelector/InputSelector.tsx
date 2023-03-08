@@ -24,18 +24,22 @@ export const InputSelector: FC = () => {
         })();
     }, [])
 
-    if (!audioContextContext) {
+    if (!(audioContextContext)) {
         return <Error>Input Selector Component must be inside an AudioContextProvider</Error>
     }
 
     const setAudioContext = (deviceId: string) => {
         (async () => {
-            const audioContext = new AudioContext();
             const stream = await navigator.mediaDevices.getUserMedia({
                 audio: {deviceId}
             })
-            const source = audioContext.createMediaStreamSource(stream);
-            audioContextContext.setAudioContext(source);
+
+            if(!audioContextContext.audioContext) {
+                return;
+            }
+
+            const source = audioContextContext.audioContext.createMediaStreamSource(stream);
+            audioContextContext.addNode('input' , source);
         })()
     }
     
