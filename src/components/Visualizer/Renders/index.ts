@@ -1,4 +1,4 @@
-import { Renderer } from "./RenderInterface"
+import { Renderer } from "./renderer-interface"
 import { ScopeConfig, ScopeRenderer } from "./scope"
 
 export interface Renders {

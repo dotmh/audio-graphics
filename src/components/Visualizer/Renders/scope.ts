@@ -1,4 +1,4 @@
-import { Renderer } from "./RenderInterface";
+import { Renderer } from "./renderer-interface";
 
 export const DEFAULT_BACKGROUND_COLOR = "rgba(31,31,31)";
 export const DEFAULT_FORGROUND_COLOR = 'rgba(38,160,0)';
